@@ -70,6 +70,7 @@ class SpatialAttention(nn.Module):
         return self.sigmoid(x)
 
 
+
 def modality_drop(x_rgb, x_depth,x_ir, p, args):
     modality_combination = [[1, 0, 0], [0, 1, 0], [0, 0, 1], [1, 1, 0], [1, 0, 1], [0, 1, 1], [1, 1, 1]]
     index_list = [x for x in range(7)]

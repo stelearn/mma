@@ -1,6 +1,6 @@
-import torchvision.transforms as ts
+# import torchvision.transforms as ts
 
-import torch.optim as optim
+# import torch.optim as optim
 import os
 import numpy as np
 from argparse import ArgumentParser
@@ -32,6 +32,7 @@ parser.add_argument('--p', default=[0, 0, 0], help='para for modality dropout')
 parser.add_argument('--modal', type=str, default='multi')
 parser.add_argument('--miss_modal', type=int, default=0)
 
+# parser.add_argument('--pp', default=12,type=int,nargs=3, help='para for modality dropout')
 
 parser.add_argument('data_root', type=str,
                     default='/home/shicaiwei/data/liveness_data/CASIA-SURF')
@@ -44,3 +45,8 @@ args = parser.parse_args()
 args.backbone = args.backbone + '_' + str(args.version) + "_"
 args.name = args.backbone + "_" + args.drop_mode
 os.environ['CUDA_VISIBLE_DEVICES'] = str(args.gpu)
+
+
+print(args)
+# print(type(args.pp[0]))
+# print(args.pp)

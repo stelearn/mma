@@ -72,9 +72,13 @@ def calc_accuracy_multi(model, loader, verbose=False, hter=False):
         predict_arr = np.array(labels_predicted.cpu())
         label_arr = np.array(labels_full.cpu())
 
+        # fn
         living_wrong = 0  # living -- spoofing
+        # tp
         living_right = 0
+        # fp
         spoofing_wrong = 0  # spoofing ---living
+        # tn
         spoofing_right = 0
 
         for i in range(len(predict_arr)):
@@ -91,8 +95,9 @@ def calc_accuracy_multi(model, loader, verbose=False, hter=False):
                     spoofing_wrong += 1
 
         try:
-
+            # fn / (fn + tp)
             APCER = living_wrong / (living_wrong + living_right)
+            #
             NPCER = spoofing_wrong / (spoofing_wrong + spoofing_right)
             ACER = (APCER + NPCER) / 2
 
@@ -195,6 +200,7 @@ def calc_accuracy_kd_patch_feature(model, loader, args, verbose=False, hter=Fals
         return [accuracy, APCER, NPCER, ACER], labels_predicted
     else:
         return [accuracy], labels_predicted
+
 
 def train_base_multi(model, cost, optimizer, train_loader, test_loader, args):
     '''

@@ -5,6 +5,7 @@ from datasets.surf_txt import SURF
 import torchvision.transforms as tt
 import torch
 
+
 surf_multi_transforms_train = tt.Compose(
     [
         Resize_multi((144, 144)),

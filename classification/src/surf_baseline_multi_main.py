@@ -16,6 +16,7 @@ import datetime
 import random
 
 
+
 def seed_torch(seed=0):
     random.seed(seed)
     np.random.seed(seed)
